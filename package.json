@@ -11,6 +11,7 @@
   "type": "module",
   "dependencies": {
     "adm-zip": "^0.5.16",
+    "he": "^1.2.0",
     "jszip": "^3.10.1"
   }
 }

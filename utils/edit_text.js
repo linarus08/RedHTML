@@ -4,7 +4,7 @@ import fs from "fs";
 import { INPUT_FOLDER, OUTPUT_FOLDER } from "../config.js";
 import path from "path";
 import { replaceNameArea } from "./replaceText.js";
-import { checkSnilsFio } from "./checkSnilsFio.js";
+import { checkSnilsFio, checkOrganization } from "./checker.js";
 
 async function editText(pack) {
   const fullNamePack = path.join(INPUT_FOLDER, pack);
@@ -27,6 +27,8 @@ async function editText(pack) {
             console.log(error);
           });
         zip.file(fileName, newContent);
+
+        checkOrganization(content, pack)
       }
     });
     await Promise.all(promises);
